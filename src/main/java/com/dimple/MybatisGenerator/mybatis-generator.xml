@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="context1">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!-- 使用自定义的插件 -->
+        <commentGenerator type="com.dimple.MybatisGenerator.MyBatisGeneratorCustomer">
+
+        </commentGenerator>
+
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=UTF8"
+                        userId="root" password="123456">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.dimple.MybatisGenerator.generatorCode.bean"
+                            targetProject="E:\Code\JavaSE\UtilsCollections\src\main\java"/>
+
+        <sqlMapGenerator targetPackage="com.dimple.MybatisGenerator.generatorCode.mapper"
+                         targetProject="E:\Code\JavaSE\UtilsCollections\src\main\java"/>
+
+        <javaClientGenerator targetPackage="com.dimple.MybatisGenerator.generatorCode.dao"
+                             targetProject="E:\Code\JavaSE\UtilsCollections\src\main\java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="blog">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
